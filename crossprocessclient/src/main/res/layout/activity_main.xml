@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,34 +13,34 @@
         android:text="Hello World!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/aidl_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="AIDL"
         app:layout_constraintBottom_toTopOf="@+id/result_txt"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/messenger_btn"
-        android:text="AIDL" />
+        app:layout_constraintRight_toLeftOf="@+id/messenger_btn" />
 
     <Button
         android:id="@+id/messenger_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/aidl_btn"
+        android:text="Messenger"
         app:layout_constraintBottom_toTopOf="@+id/result_txt"
-        app:layout_constraintRight_toRightOf="@id/task_btn"
-        android:text="Messenger" />
+        app:layout_constraintLeft_toRightOf="@+id/aidl_btn"
+        app:layout_constraintRight_toRightOf="@id/task_btn" />
 
     <Button
         android:id="@+id/task_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/messenger_btn"
+        android:text="New Task"
         app:layout_constraintBottom_toTopOf="@+id/result_txt"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="New Task" />
+        app:layout_constraintLeft_toRightOf="@+id/messenger_btn"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
