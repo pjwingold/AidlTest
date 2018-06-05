@@ -4,33 +4,27 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.widget.Button
-import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main.*
 import pjwin.com.aidltest.Person
 
 
 class MainActivity : AppCompatActivity() {
     private val TAG = MainActivity::class.qualifiedName
-    private lateinit var aidlBtn: Button
-    private lateinit var messengerBtn: Button
-    private lateinit var taskBtn: Button
-    private lateinit var resultTxt: TextView
     private lateinit var connectionListener: ServiceConnectionListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        resultTxt = findViewById(R.id.result_txt)
-        aidlBtn = findViewById(R.id.aidl_btn)
-        aidlBtn.setOnClickListener {
+
+        aidl_btn.setOnClickListener {
             aidlAction()
         }
-        messengerBtn = findViewById(R.id.messenger_btn)
-        messengerBtn.setOnClickListener {
+
+        messenger_btn.setOnClickListener {
             messengerAction()
         }
-        taskBtn = findViewById(R.id.task_btn)
-        taskBtn.setOnClickListener {
+
+        task_btn.setOnClickListener {
             val intent = Intent(this, AffinityActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
@@ -38,7 +32,6 @@ class MainActivity : AppCompatActivity() {
 
         connectionListener = ServiceConnectionListener { list -> showPerson(list) }
         lifecycle.addObserver(connectionListener)
-
     }
 
 
@@ -51,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "loading finish")
         personList?.forEach {
             Log.d(TAG, "person id: " + it.id + " name: " + it.name)
-            resultTxt.text = "person id: " + it.id + " name: " + it.name
+            result_txt.text = "person id: " + it.id + " name: " + it.name
         }
     }
 
